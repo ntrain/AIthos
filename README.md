@@ -1,2 +1,30 @@
 # AIthos
 AIthos is a values-driven chatbot that listens with empathy, responds with respect, and fosters meaningful conversation. Designed to be ethical and emotionally aware, it bridges the gap between artificial intelligence and human connection.
+
+## About The Project
+There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it
+Here's why:
+- Your time should be focused on creating something amazing. A project that solves a problem and helps others
+- You shouldn't be doing the same tasks over and over like creating a README from scratch
+- You should implement DRY principles to the rest of your life
+
+## Built With
+This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples
+
+## Getting Started
+This is an example of how you may give instructions on setting up your project locally. To get a local copy up and running follow these simple example steps
+
+### Prerequisites
+This is an example of how to list things you need to use the software and how to install them npm install npm@latest -g
+
+##Installation
+git clone https://github.com/github_username/repo_name.git
+npm install
+
+## Usage
+Showcase how your project can be used with examples, screenshots, and code snippets. This helps users understand the practical applications of your project. For example:
+```markdown
+
+## Contributing
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
