@@ -21,6 +21,14 @@ function sendMessage() {
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
+// Allow pressing Enter to send message
+document.getElementById("user-input").addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault(); // Prevents accidental form submission
+    sendMessage();
+  }
+});
+
 function getAIthosResponse(input) {
   const text = input.toLowerCase();
 
