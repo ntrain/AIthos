@@ -20,15 +20,23 @@ body {
   text-align: center;
 }
 
-/* Fade-in animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 .heading-container h1 {
   font-size: 3em;
   margin: 0;
+}
+
+.ai-highlight {
+  font-size: 1.2em;              /* Slightly larger */
+  color: gold;
+  font-weight: bold;
+  padding: 2px 6px;
+  border: 2px solid gold;
+  border-radius: 6px;
+  margin-right: 4px;
+}
+
+.thos-text {
+  color: black;
 }
 
 .heading-container tagline {
@@ -56,6 +64,12 @@ body {
   padding: 10px;
   margin-bottom: 10px;
   background: #fff;        /* White background for messages */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Message bubbles */
