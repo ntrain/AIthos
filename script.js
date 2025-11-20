@@ -6,31 +6,51 @@ function sendMessage() {
   if (userText === "") return;
 
   // Display user message
-  chatBox.innerHTML += `<p><strong>You:</strong> ${userText}</p>`;
+  chatBox.innerHTML += `<div class="message user"><strong>You:</strong> ${userText}</div>`;
 
-  // Generate AIthos response
-  const aiResponse = getAIthosResponse(userText);
-  chatBox.innerHTML += `<p><strong>AIthos:</strong> ${aiResponse}</p>`;
-
-  // Add feedback prompt
-  chatBox.innerHTML += `<p><em>Did this response make you feel safe, supported, or confused?</em></p>`;
+  // Simulate AIthos typing delay
+  setTimeout(() => {
+    const aiResponse = getAIthosResponse(userText);
+    chatBox.innerHTML += `<div class="message ai"><strong>AIthos:</strong> ${aiResponse}</div>`;
+    chatBox.innerHTML += feedbackButtons();
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }, 600);
 
   input.value = "";
-  chatBox.scrollTop = chatBox.scrollHeight;
 }
 
 function getAIthosResponse(message) {
   message = message.toLowerCase();
 
+  const empathyResponses = [
+    "It's valid to feel uncertain about AI. I'm here to be transparent and respectful.",
+    "Thanks for sharing that. I want to support you however I can.",
+    "I don’t collect or store personal information. You’re always in control of what you share."
+  ];
+
   if (message.includes("trust") || message.includes("scared")) {
-    return "It's completely valid to feel uncertain about AI. I'm here to be transparent and respectful. Would you like to talk more about what worries you?";
+    return empathyResponses[0];
   } else if (message.includes("anxious") || message.includes("nervous")) {
-    return "Thanks for sharing that. I'm here to support you however I can. Would calming suggestions be helpful?";
-  } else if (message.includes("how do you work") || message.includes("decide")) {
-    return "I generate responses based on patterns in language and data. I don’t have opinions or emotions, but I aim to be helpful and clear.";
+    return empathyResponses[1];
   } else if (message.includes("privacy") || message.includes("data")) {
-    return "I don’t collect or store personal information. You’re always in control of what you share.";
+    return empathyResponses[2];
   } else {
     return "I'm here to listen and respond with care. Could you tell me more about what you're thinking or feeling?";
   }
+}
+
+function feedbackButtons() {
+  return `
+    <div class="message ai">
+      <em>How did this response make you feel?</em><br/>
+      <button onclick="recordFeedback('Safe')">👍 Safe</button>
+      <button onclick="recordFeedback('Confused')">🤔 Confused</button>
+      <button onclick="recordFeedback('Supported')">❤️ Supported</button>
+    </div>
+  `;
+}
+
+function recordFeedback(feeling) {
+  const chatBox = document.getElementById("chat-box");
+  chatBox.innerHTML += `<div class="message user"><strong>Feedback:</strong> ${feeling}</div>`;
 }
