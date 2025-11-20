@@ -27,7 +27,6 @@ function sendMessage() {
 }
 
 function getAIResponse(userMessage) {
-  // Simple canned responses for demo
   const responses = [
     "I hear you, Nicole. Let's explore that idea together.",
     "That’s an interesting thought — can you tell me more?",
@@ -37,7 +36,6 @@ function getAIResponse(userMessage) {
   return responses[Math.floor(Math.random() * responses.length)];
 }
 
-// Allow Enter key to send message
 document.getElementById("user-input").addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
     sendMessage();
