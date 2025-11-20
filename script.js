@@ -1,44 +1,45 @@
 function sendMessage() {
-  const userInput = document.getElementById("user-input");
+  const input = document.getElementById("user-input");
+  const message = input.value.trim();
+  if (message === "") return;
+
+  // Add user message
   const chatBox = document.getElementById("chat-box");
-  const userText = userInput.value.trim();
-
-  if (userText === "") return; // Prevent empty messages
-
-  // Display user message
-  chatBox.innerHTML += `<div class="user-message"><strong>You:</strong> ${userText}</div>`;
-
-  // Get AI response
-  const aiResponse = getAIthosResponse(userText);
-
-  // Display AI response
-  chatBox.innerHTML += `<div class="ai-message"><strong>AIthos:</strong> ${aiResponse}</div>`;
+  const userBubble = document.createElement("div");
+  userBubble.className = "user-message";
+  userBubble.textContent = message;
+  chatBox.appendChild(userBubble);
 
   // Clear input
-  userInput.value = "";
+  input.value = "";
 
   // Scroll to bottom
   chatBox.scrollTop = chatBox.scrollHeight;
+
+  // Simulate AIthos response
+  setTimeout(() => {
+    const aiBubble = document.createElement("div");
+    aiBubble.className = "ai-message";
+    aiBubble.textContent = getAIResponse(message);
+    chatBox.appendChild(aiBubble);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }, 600);
 }
 
-// Allow pressing Enter to send message
+function getAIResponse(userMessage) {
+  // Simple canned responses for demo
+  const responses = [
+    "I hear you, Nicole. Let's explore that idea together.",
+    "That’s an interesting thought — can you tell me more?",
+    "I’d like to challenge that perspective gently. What if we looked at it another way?",
+    "I’m here to enrich your thinking, not just agree. Let’s dig deeper."
+  ];
+  return responses[Math.floor(Math.random() * responses.length)];
+}
+
+// Allow Enter key to send message
 document.getElementById("user-input").addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
-    event.preventDefault(); // Prevents accidental form submission
     sendMessage();
   }
 });
-
-function getAIthosResponse(input) {
-  const text = input.toLowerCase();
-
-  if (text.includes("hello") || text.includes("hi")) {
-    return "Hello! How are you feeling today?";
-  } else if (text.includes("anxious")) {
-    return "Thanks for sharing that. I’m here to support you. Would calming suggestions be helpful?";
-  } else if (text.includes("how do you work")) {
-    return "I generate responses based on patterns in language and data. I don’t have emotions, but I aim to be helpful and clear.";
-  } else {
-    return "I hear you. Tell me more so I can respond better.";
-  }
-}
