@@ -22,6 +22,24 @@ function sendMessage() {
 function getAIthosResponse(message) {
   message = message.toLowerCase();
 
+const trustResponses = [
+    "It's valid to feel uncertain about AI. I'm here to be transparent and respectful.",
+    "I understand your hesitation — AI can feel mysterious, but I’ll keep things clear.",
+    "Trust is important. I’ll do my best to earn yours."
+  ];
+
+  const anxiousResponses = [
+    "Thanks for sharing that. I want to support you however I can.",
+    "Feeling anxious is natural — let’s take it step by step.",
+    "I hear your nerves. Let’s slow down together."
+  ];
+
+  const privacyResponses = [
+    "I don’t collect or store personal information. You’re always in control of what you share.",
+    "Privacy matters. You decide what to share, and nothing is saved.",
+    "Your data isn’t stored — you’re in charge of the conversation."
+  ];
+  
   if (message.includes("trust") || message.includes("scared")) {
     return "It's valid to feel uncertain about AI. I'm here to be transparent and respectful.";
   } else if (message.includes("anxious") || message.includes("nervous")) {
@@ -48,5 +66,14 @@ function feedbackButtons() {
 
 function recordFeedback(feeling) {
   const chatBox = document.getElementById("chat-box");
-  chatBox.innerHTML += `<div class="message user"><strong>Feedback:</strong> ${feeling}</div>`;
+  chatBox.innerHTML += `<div class="message ai"><strong><em>AI</em>thos:</strong> ${aiResponse}</div>`;
 }
+
+// Allow Enter key to send message
+document.getElementById("user-input").addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    sendMessage();
+  }
+});
+
