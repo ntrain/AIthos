@@ -41,3 +41,4 @@ document.getElementById("user-input").addEventListener("keypress", function(even
     sendMessage();
   }
 });
+
