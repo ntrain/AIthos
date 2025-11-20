@@ -1,12 +1,7 @@
-
-body {
-  background-color: pink !important;
-}
-
 /* Global */
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #e6e6e6, #f9f9f9); /* Soft silver gray gradient */
+  background: linear-gradient(to bottom, #d9d9d9, #ffffff); /* darker silver to pure white */
   padding: 20px;
   margin: 0;
   border: 12px solid midnightblue;   /* Midnight blue border around entire page */
