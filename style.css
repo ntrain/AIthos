@@ -1,7 +1,8 @@
 /* Global */
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #d9d9d9, #ffffff); /* darker silver to pure white */
+  bbackground: url('https://example.com/your-image.jpg') no-repeat center center fixed;
+  background-size: cover;   /* Ensures the image covers the whole page */
   padding: 20px;
   margin: 0;
   border: 12px solid midnightblue;   /* Midnight blue border around entire page */
