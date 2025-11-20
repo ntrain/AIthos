@@ -8,7 +8,7 @@ body {
 /* Heading container */
 .heading-container {
   display: flex;
-  flex-direction: column;   /* Stack heading and tagline */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 20px auto;
@@ -35,7 +35,7 @@ body {
 
 /* Stylized heading parts */
 .ai-highlight {
-  font-size: 1.2em;              /* Slightly larger */
+  font-size: 1.2em;
   color: gold;
   font-weight: bold;
   padding: 2px 6px;
@@ -52,12 +52,12 @@ body {
 .chat-container {
   max-width: 600px;
   margin: 20px auto;
-  background: forestgreen;       /* Rich green background */
+  background: forestgreen;
   padding: 20px;
   border-radius: 12px;
-  border: 3px solid gold;        /* Gold boundary */
+  border: 3px solid gold;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  color: white;                  /* Default text color inside container */
+  color: white;
 }
 
 /* Chat box */
@@ -67,11 +67,11 @@ body {
   border: 1px solid #ddd;
   padding: 10px;
   margin-bottom: 10px;
-  background: forestgreen;       /* Match container background */
-  color: ivory;                  /* Ivory text inside chat box */
+  background: forestgreen;
+  color: ivory;
 }
 
-/* Animation definition */
+/* Animation */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -79,27 +79,27 @@ body {
 
 /* Message bubbles */
 .user-message {
-  background: #e1f5fe;           /* Light blue bubble */
-  color: ivory;                  /* Inverted to ivory text */
+  background: #e1f5fe;
+  color: ivory;
   padding: 10px;
-  border: 2px solid ivory;       /* Ivory border */
+  border: 2px solid ivory;
   border-radius: 8px;
   margin: 5px 0;
   text-align: right;
   animation: fadeIn 0.3s ease-in-out;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* Subtle depth */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 .ai-message {
-  background: #f1f1f1;           /* Light gray bubble */
-  color: ivory;                  /* Inverted to ivory text */
+  background: #f1f1f1;
+  color: ivory;
   padding: 10px;
-  border: 2px solid ivory;       /* Ivory border */
+  border: 2px solid ivory;
   border-radius: 8px;
   margin: 5px 0;
   text-align: left;
   animation: fadeIn 0.3s ease-in-out;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* Subtle depth */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 /* Input + button */
@@ -108,7 +108,7 @@ body {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  color: black;                  /* Input text stays black */
+  color: black;
 }
 
 button {
@@ -122,5 +122,5 @@ button {
 }
 
 button:hover {
-  background: #d4af37;           /* Richer gold on hover */
+  background: #d4af37;
 }
