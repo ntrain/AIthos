@@ -25,6 +25,13 @@ h1 {
   color: #555;
 }
 
+#tagline {
+  font-size: 1.1em;        /* slightly larger */
+  margin-bottom: 20px;     /* spacing below tagline */
+  color: #555;             /* softer color */
+  white-space: nowrap;     /* keeps tagline on one line */
+}
+
 #chat-box {
   width: 600px;
   max-width: 90%;
