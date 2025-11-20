@@ -52,6 +52,23 @@ body {
   background: #fff;        /* White background for messages */
 }
 
+/* Message bubbles */
+.user-message {
+  background: #e1f5fe;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 5px 0;
+  text-align: right;
+}
+
+.ai-message {
+  background: #f1f1f1;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 5px 0;
+  text-align: left;
+}
+
 #user-input {
   width: 80%;
   padding: 10px;
