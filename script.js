@@ -1,34 +1,36 @@
 function sendMessage() {
-  const input + document.getElementById("user-input");
+  const userInput = document.getElementById("user-input");
   const chatBox = document.getElementById("chat-box");
-  const userText = input.value.trim();
+  const userText = userInput.value.trim();
 
-  if (userText === "") return;
+  if (userText === "") return; // Prevent empty messages
 
-  //Display user message.
-  chatBox.innerHTML += '<p><strong>You:</strong> ${userText}</p>;
+  // Display user message
+  chatBox.innerHTML += `<div class="user-message"><strong>You:</strong> ${userText}</div>`;
 
-  //Generate AIthos response
-  const aiResponse = get AIthosResponse(userText);
-  chatBox.innerHTML += '<p><strong>AIthos:</strong> ${aiResponse}</p>;
-  
-    input.value = "";
-    chatBox.scrollTop = chatBox.scrollHeight;
+  // Get AI response
+  const aiResponse = getAIthosResponse(userText);
+
+  // Display AI response
+  chatBox.innerHTML += `<div class="ai-message"><strong>AIthos:</strong> ${aiResponse}</div>`;
+
+  // Clear input
+  userInput.value = "";
+
+  // Scroll to bottom
+  chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-function getAIthosResponse(message) {
-  return "It's conpletely valid to feel uncertain about AI. I'm here tobe transparent ad respectful. Would you like to talk more about what worries you?";
-  }
-  else if (message.includes("anxious") || message.includes("nervous")) {
-    return "Thanks for sharing that. I'm here to support you however I can. Would calming suggestions be helpful?";
-  }
-  else if (message.include("How do you work?") || message.includes("decide")) {
-    return "I generate responses based on patterns in language and data. I don't have opinions or emotions, but I aim to be helpful and clear.";
-  }
-  else if (message.includes("privacy") || message.includes("data") {
-    return "I don't collect or store personla information. You're always in control of what you share.";
-  }
-  else {
-    return "I'm here to listen and respond with care. Could you tell me more about what you're thinking or feeling?";
+function getAIthosResponse(input) {
+  const text = input.toLowerCase();
+
+  if (text.includes("hello") || text.includes("hi")) {
+    return "Hello! How are you feeling today?";
+  } else if (text.includes("anxious")) {
+    return "Thanks for sharing that. I’m here to support you. Would calming suggestions be helpful?";
+  } else if (text.includes("how do you work")) {
+    return "I generate responses based on patterns in language and data. I don’t have emotions, but I aim to be helpful and clear.";
+  } else {
+    return "I hear you. Tell me more so I can respond better.";
   }
 }
