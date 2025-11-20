@@ -42,10 +42,10 @@ body {
 .chat-container {
   max-width: 600px;
   margin: 20px auto;        /* Centers below heading */
-  background: ivory;        /* Match heading fill */
+  background: forest-green;        /* Match heading fill */
   padding: 20px;
   border-radius: 10px;
-  border: 3px solid gld;    /* Gold outline */
+  border: 3px solid gold;    /* Gold outline */
   box-shadow: 0 4px 14px rgba(0,0,0,0.1);
 }
 
