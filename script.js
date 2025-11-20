@@ -1,15 +1,13 @@
 function sendMessage() {
-<<<<<<< HEAD
   const input = document.getElementById("user-input");
-=======
   const input + document.getElementById("user-input");
->>>>>>> edd4a9a (Renamed scrypt.js to script.js and updated chatbot code)
+    edd4a9a (Renamed scrypt.js to script.js and updated chatbot code)
   const chatBox = document.getElementById("chat-box");
   const userText = input.value.trim();
 
   if (userText === "") return;
 
-<<<<<<< HEAD
+
   // Display user message
   chatBox.innerHTML += `<div class="message user"><strong>You:</strong> ${userText}</div>`;
 
@@ -59,7 +57,7 @@ function recordFeedback(feeling) {
   const chatBox = document.getElementById("chat-box");
   chatBox.innerHTML += `<div class="message user"><strong>Feedback:</strong> ${feeling}</div>`;
 }
-=======
+
   //Display user message.
   chatBox.innerHTML += '<p><strong>You:</strong> ${userText}</p>;
 
@@ -87,4 +85,4 @@ function getAIthosResponse(message) {
     return "I'm here to listen and respond with care. Could you tell me more about what you're thinking or feeling?";
   }
 }
->>>>>>> edd4a9a (Renamed scrypt.js to script.js and updated chatbot code)
+    edd4a9a (Renamed scrypt.js to script.js and updated chatbot code)
