@@ -1,22 +1,26 @@
 <!DOCTYPE html>
-<html lang-"eng">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AIthos CHatbot</title>
-    <link rel-"stylesheet href="style.css" />
+    <title>AIthos Chatbot</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <div> class="heading-container">
-      <h1> AIthos</h1>
-    <div class="chat-container">
+    <!-- Heading container -->
+    <div class="heading-container">
       <h1>AIthos</h1>
-      <p class="tagline"Ethical AI that listens, respects, and connects - where artificial intelligence meets human values.</p>
-    <div id="chatbox"></div>
-    <input type="text" id="user-input" placeholder="Type your message.." />
-    <button onclick="sendMessage()">Send</button>
+      <p class="tagline">Ethical AI that listens, respects, and connects — where artificial intelligence meets human values.</p>
     </div>
+
+    <!-- Chat container -->
+    <div class="chat-container">
+      <div id="chat-box"></div>
+      <input type="text" id="user-input" placeholder="Type your message..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
