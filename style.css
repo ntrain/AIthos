@@ -1,6 +1,6 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
   padding: 20px;
 }
 
@@ -9,27 +9,48 @@ body {
   margin: auto;
   background: white;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 h1 {
   text-align: center;
+  color: #2e7d32;
 }
 
 .tagline {
   text-align: center;
   font-style: italic;
   margin-bottom: 15px;
+  color: #555;
 }
 
 #chat-box {
-  height: 300px;
+  height: 350px;
   overflow-y: auto;
   border: 1px solid #ddd;
   padding: 10px;
   margin-bottom: 10px;
   background-color: #fafafa;
+  border-radius: 10px;
+}
+
+.message {
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 12px;
+  max-width: 80%;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.user {
+  background: #eeeeee;
+  align-self: flex-end;
+}
+
+.ai {
+  background: #c8e6c9;
+  align-self: flex-start;
 }
 
 .input-area {
@@ -40,21 +61,24 @@ h1 {
 #user-input {
   flex: 1;
   padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
 button {
   padding: 10px 15px;
-  background-color: #4CAF50;
+  background-color: #2e7d32;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #1b5e20;
 }
 
-p {
-  margin: 5px 0;
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
