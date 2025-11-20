@@ -1,13 +1,21 @@
 /* Global */
 body {
   font-family: Arial, sans-serif;
-  bbackground: url('https://example.com/your-image.jpg') no-repeat center center fixed;
-  background-size: cover;   /* Ensures the image covers the whole page */
-  padding: 20px;
   margin: 0;
-  border: 12px solid midnightblue;   /* Midnight blue border around entire page */
-  min-height: 100vh;                 /* Ensure full height coverage */
+  padding: 20px;
+  min-height: 100vh;
   box-sizing: border-box;
+
+  /* Borders */
+  border: 24px solid midnightblue;   /* Thicker midnight blue outer border */
+  outline: 10px solid silver;        /* Inner silver border */
+  outline-offset: -24px;
+
+  /* Background with overlay */
+  background: 
+    linear-gradient(to bottom right, rgba(192,192,192,0.6), rgba(192,192,192,0.6)), 
+    url('YOUR_IMAGE_URL_HERE') no-repeat center center fixed;
+  background-size: cover;
 }
 
 /* Heading container */
