@@ -1,165 +1,28 @@
-/* Reset and global setup */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AIthos Chatbot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Heading -->
+  <div class="heading-container">
+    <h1>
+      <span class="ai-highlight">A.I.</span><span class="thos-text">thos</span>
+    </h1>
+    <p class="tagline">
+      Ethical AI that listens, respects, and connects — where artificial intelligence meets human values.
+    </p>
+  </div>
 
-/* Body styling with background and borders */
-body {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  box-sizing: border-box;
+  <!-- Chat container -->
+  <div class="chat-container">
+    <div id="chat-box"></div>
+    <input type="text" id="user-input" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
 
-  /* Borders */
-  border: 24px solid midnightblue;   /* outer border */
-  outline: 10px solid silver;        /* inner border */
-  outline-offset: -24px;
-
-  /* Background image with overlay */
-  background-image: url('images/ai-human-hands.jpg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
-
-  position: relative;
-  min-height: 100vh;
-}
-
-/* Overlay layer for readability */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(
-    to bottom right,
-    rgba(192,192,192,0.5),
-    rgba(192,192,192,0.5)
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Lift content above overlay */
-.heading-container,
-.chat-container {
-  position: relative;
-  z-index: 1;
-}
-
-/* Heading container */
-.heading-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px auto;
-  padding: 20px;
-  border: 4px solid silver;
-  background-color: midnightblue;
-  color: white;
-  border-radius: 12px;
-  max-width: 600px;
-  text-align: center;
-}
-
-.heading-container h1 {
-  font-size: 3em;
-  margin: 0;
-}
-
-.heading-container .tagline {
-  font-size: 1.2em;
-  margin-top: 10px;
-  font-style: italic;
-  color: silver;
-}
-
-/* Stylized heading parts */
-.ai-highlight {
-  font-style: italic;   /* Italicized A.I. */
-  color: silver;
-  margin-right: 4px;
-}
-
-.thos-text {
-  color: white;
-}
-
-/* Chat container */
-.chat-container {
-  max-width: 600px;
-  margin: 20px auto;
-  background: midnightblue;
-  padding: 20px;
-  border-radius: 12px;
-  border: 3px solid silver;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  color: white;
-}
-
-/* Chat box */
-#chat-box {
-  height: 300px;
-  overflow-y: auto;
-  border: 1px solid silver;
-  padding: 10px;
-  margin-bottom: 10px;
-  background: midnightblue;
-  color: white;
-}
-
-/* Animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Message bubbles */
-.user-message {
-  background: silver;
-  color: midnightblue;
-  padding: 10px;
-  border: 2px solid white;
-  border-radius: 8px;
-  margin: 5px 0;
-  text-align: right;
-  animation: fadeIn 0.3s ease-in-out;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-.ai-message {
-  background: white;
-  color: midnightblue;
-  padding: 10px;
-  border: 2px solid silver;
-  border-radius: 8px;
-  margin: 5px 0;
-  text-align: left;
-  animation: fadeIn 0.3s ease-in-out;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-/* Input + button */
-#user-input {
-  width: 80%;
-  padding: 10px;
-  border: 1px solid silver;
-  border-radius: 8px;
-  color: midnightblue;
-}
-
-button {
-  padding: 10px 20px;
-  background: silver;
-  color: midnightblue;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-button:hover {
-  background: #c0c0c0;
-}
+  <script src="script.js"></script>
+</body>
+</html>
