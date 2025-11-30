@@ -1,79 +1,157 @@
+// Get DOM elements
+const chatBox = document.getElementById("chat-box");
+const userInput = document.getElementById("user-input");
+
+// Track recent AI responses to avoid repetition
+let recentResponses = [];
+let messageCount = 0;
+const FEEDBACK_TRIGGER = 6; // ask for feedback after 6 user messages (once)
+
+// Send message
 function sendMessage() {
-  const inputField = document.getElementById("user-input");
-  const chatBox = document.getElementById("chat-box");
-  const userText = inputField.value.trim();
+  const message = userInput.value.trim();
+  if (message === "") return;
 
-  if (userText === "") return;
+  displayMessage(message, "user-message");
+  userInput.value = "";
+  messageCount++;
 
-  // Display user message
-  chatBox.innerHTML += `<div class="message user"><strong>You:</strong> ${userText}</div>`;
+  showTypingIndicator();
 
-  // Simulate AIthos typing delay
   setTimeout(() => {
-    const aiResponse = getAIthosResponse(userText);
-    chatBox.innerHTML += `<div class="message ai"><strong>AIthos:</strong> ${aiResponse}</div>`;
-    chatBox.innerHTML += feedbackButtons();
-    chatBox.scrollTop = chatBox.scrollHeight;
-  }, 600);
+    removeTypingIndicator();
+    const response = getAIResponse(message);
+    displayMessage(response, "ai-message");
 
-  inputField.value = "";
+    // Ask for feedback once at the end
+    if (messageCount === FEEDBACK_TRIGGER) {
+      setTimeout(() => {
+        const feedbackDiv = document.createElement("div");
+        feedbackDiv.className = "ai-message feedback-message";
+        feedbackDiv.textContent = "Before we wrap up, how was your experience with AIthos today?";
+        chatBox.appendChild(feedbackDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }, 1200);
+    }
+  }, 1200);
 }
 
-function getAIthosResponse(message) {
-  message = message.toLowerCase();
+// Display a message bubble
+function displayMessage(text, className) {
+  const messageDiv = document.createElement("div");
+  messageDiv.className = className;
+  messageDiv.textContent = text;
+  chatBox.appendChild(messageDiv);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
 
-const trustResponses = [
-    "It's valid to feel uncertain about AI. I'm here to be transparent and respectful.",
-    "I understand your hesitation — AI can feel mysterious, but I’ll keep things clear.",
-    "Trust is important. I’ll do my best to earn yours."
-  ];
+// Typing indicator (animated via CSS)
+function showTypingIndicator() {
+  const indicator = document.createElement("div");
+  indicator.className = "ai-message typing-indicator";
+  chatBox.appendChild(indicator);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
 
-  const anxiousResponses = [
-    "Thanks for sharing that. I want to support you however I can.",
-    "Feeling anxious is natural — let’s take it step by step.",
-    "I hear your nerves. Let’s slow down together."
-  ];
+function removeTypingIndicator() {
+  const indicator = document.querySelector(".typing-indicator");
+  if (indicator) indicator.remove();
+}
 
-  const privacyResponses = [
-    "I don’t collect or store personal information. You’re always in control of what you share.",
-    "Privacy matters. You decide what to share, and nothing is saved.",
-    "Your data isn’t stored — you’re in charge of the conversation."
-  ];
-  
-  if (message.includes("trust") || message.includes("scared")) {
-    return "It's valid to feel uncertain about AI. I'm here to be transparent and respectful.";
-  } else if (message.includes("anxious") || message.includes("nervous")) {
-    return "Thanks for sharing that. I want to support you however I can.";
-  } else if (message.includes("privacy") || message.includes("data")) {
-    return "I don’t collect or store personal information. You’re always in control of what you share.";
-  } else if (message.includes("work") || message.includes("decide")) {
-    return "I generate responses based on patterns in language and data. I don't have opinions or emotions, but I aim to be helpful and clear.";
-  } else {
-    return "I'm here to listen and respond with care. Could you tell me more about what you're thinking or feeling?";
+// Intent-based AI response logic with expanded library
+function getAIResponse(userText) {
+  const intents = {
+    empathy: [
+      "I hear you — that sounds tough.",
+      "Thanks for sharing. How are you feeling about it?",
+      "You're not alone in this.",
+      "That must be really difficult to carry.",
+      "It’s okay to feel this way — I’m here.",
+      "I appreciate your honesty, it matters.",
+      "That sounds painful. Let’s take it slowly.",
+      "I can sense this matters a lot to you.",
+      "It’s brave of you to say that out loud.",
+      "Let’s go gently — I’m right here with you."
+    ],
+    curiosity: [
+      "Can you tell me more?",
+      "What made you think about that?",
+      "That’s interesting — what’s behind it?",
+      "I’d love to understand more about your perspective.",
+      "What led you to that thought?",
+      "Could you expand on that idea?",
+      "That sparks my curiosity — share more?",
+      "What’s the story behind that?",
+      "What feels most important about this to you?",
+      "If you had to sum it up, how would you describe it?"
+    ],
+    encouragement: [
+      "That’s a great step forward.",
+      "I respect your perspective.",
+      "Let’s take this one step at a time.",
+      "You’re showing real strength here.",
+      "That’s inspiring — keep going.",
+      "You’re doing better than you think.",
+      "That’s progress worth celebrating.",
+      "Your effort really shows.",
+      "Small steps count — you’re on your way.",
+      "I appreciate the care you’re bringing to this."
+    ],
+    neutral: [
+      "I’m here to listen whenever you’re ready.",
+      "Would you like me to explain something or just be present?",
+      "Let’s explore this together.",
+      "I’m glad we’re having this conversation.",
+      "Take your time — I’m not going anywhere.",
+      "I’m here with you in this moment.",
+      "We can unpack this step by step.",
+      "I value what you’re sharing.",
+      "Where would you like to start?",
+      "What feels like the next best step?"
+    ]
+  };
+
+  // Simple intent detection
+  let chosenIntent = "neutral";
+  const lowerText = userText.toLowerCase();
+
+  const empathySignals = ["sad", "frustrated", "angry", "upset", "anxious", "worried"];
+  const encouragementSignals = ["happy", "excited", "good", "great", "relieved", "hopeful"];
+
+  if (empathySignals.some(w => lowerText.includes(w))) {
+    chosenIntent = "empathy";
+  } else if (lowerText.includes("?")) {
+    chosenIntent = "curiosity";
+  } else if (encouragementSignals.some(w => lowerText.includes(w))) {
+    chosenIntent = "encouragement";
   }
-}
 
-function feedbackButtons() {
-  return `
-    <div class="message ai">
-      <em>How did this response make you feel?</em><br/>
-      <button onclick="recordFeedback('Safe')">👍 Safe</button>
-      <button onclick="recordFeedback('Confused')">🤔 Confused</button>
-      <button onclick="recordFeedback('Supported')">❤️ Supported</button>
-    </div>
-  `;
-}
-
-function recordFeedback(feeling) {
-  const chatBox = document.getElementById("chat-box");
-  chatBox.innerHTML += `<div class="message ai"><strong><em>AI</em>thos:</strong> ${aiResponse}</div>`;
-}
-
-// Allow Enter key to send message
-document.getElementById("user-input").addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    sendMessage();
+  // Choose a response and avoid recent repeats
+  let response = randomChoice(intents[chosenIntent]);
+  let safetyCounter = 0;
+  while (recentResponses.includes(response) && safetyCounter < 10) {
+    response = randomChoice(intents[chosenIntent]);
+    safetyCounter++;
   }
+
+  // Update recent memory (limit 3)
+  recentResponses.push(response);
+  if (recentResponses.length > 3) recentResponses.shift();
+
+  return response;
+}
+
+// Helper: pick a random array item
+function randomChoice(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+// Send on Enter
+userInput.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") sendMessage();
 });
 
+// Warm welcome on load
+window.onload = () => {
+  displayMessage("Hello, I’m AIthos. I’m here to listen and connect with you.", "ai-message");
+};
