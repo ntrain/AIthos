@@ -17,7 +17,7 @@ body {
   outline-offset: -24px;
 
   /* Background image with overlay */
-  background-image: url('YOUR_IMAGE_URL_HERE');
+  background-image: url('images/ai-human-hands.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
