@@ -17,7 +17,7 @@ AIthos explores how conversational AI can feel more human‑centered. Instead of
 - **JavaScript (ES6)** — logic, intent detection, typing indicator, feedback flow  
 
 ## Getting Started
-o get a local copy up and running, follow these steps:
+To get a local copy up and running, follow these steps:
 
 ### Prerequisites
 - A modern web browser (Chrome, Edge, Firefox, Safari).
@@ -26,5 +26,22 @@ o get a local copy up and running, follow these steps:
 ### Installation
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/AIthos.git
+   git clone https://github.com/ntrain/AIthos.git
    cd AIthos
+
+### Running Locally
+Open index.html in your browser to start the chatbot.
+No server setup is required — it runs as a static site.
+
+### Deployment
+- Enable GitHub Pages in your repo settings.
+- Set the source branch to main (root).
+- Your site will be live at:
+   https://ntrain.github.io/AIthos/
+
+### Usage
+- Type a message and press Enter or click Send.
+- AIthos shows a typing indicator, then responds with varied, intent-based replies.
+- After several exchanged, it gently asks:
+  "Before we wrap up, how was your experience with AIthos today?"
+This create a respectful, authentic chatbot experience.
