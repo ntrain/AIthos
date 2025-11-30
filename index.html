@@ -4,55 +4,25 @@
   <meta charset="UTF-8">
   <title>AIthos Chatbot</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Quick style adjustments for clarity */
-    #chat-box {
-      width: 600px;   /* wider so tagline fits on one line */
-      max-width: 90%;
-      height: 400px;
-      overflow-y: auto;
-      margin: 20px auto;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background: #fafafa;
-    }
-    .message.user { color: #333; }
-    .message.ai { color: #0066cc; }
-    #user-input {
-      width: 500px;
-      padding: 8px;
-      margin-top: 10px;
-    }
-    button {
-      padding: 8px 12px;
-      margin-left: 5px;
-    }
-  </style>
 </head>
 <body>
-  <h1 style="text-align:center;">Welcome to <em>AI</em>thos</h1>
-    <p id="tagline" style="text-align:center;">
+  <!-- Heading -->
+  <div class="heading-container">
+    <h1>
+      <span class="ai-highlight">A.I.</span><span class="thos-text">thos</span>
+    </h1>
+    <p class="tagline">
       Ethical AI that listens, respects, and connects — where artificial intelligence meets human values.
     </p>
+  </div>
 
-
-  <div id="chat-box"></div>
-
-  <div style="text-align:center; margin-top:10px;">
-    <input id="user-input" type="text" placeholder="Type your message here..." />
+  <!-- Chat container -->
+  <div class="chat-container">
+    <div id="chat-box"></div>
+    <input type="text" id="user-input" placeholder="Type your message...">
     <button onclick="sendMessage()">Send</button>
   </div>
 
   <script src="script.js"></script>
-  <script>
-    // Allow Enter key to send message
-    document.getElementById("user-input").addEventListener("keypress", function(event) {
-      if (event.key === "Enter") {
-        event.preventDefault();
-        sendMessage();
-      }
-    });
-  </script>
 </body>
 </html>
