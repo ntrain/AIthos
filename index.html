@@ -2,26 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AIthos Chatbot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIthos</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Heading -->
-  <div class="heading-container">
-    <h1>
-      <span class="ai-highlight">A.I.</span><span class="thos-text">thos</span>
-    </h1>
-    <p class="tagline">
-      Ethical AI that listens, respects, and connects — where artificial intelligence meets human values.
-    </p>
-  </div>
+  <!-- Header -->
+  <header>
+    <h1>AIthos</h1>
+  </header>
 
-  <!-- Chat container -->
-  <div class="chat-container">
-    <div id="chat-box"></div>
-    <input type="text" id="user-input" placeholder="Type your message...">
-    <button onclick="sendMessage()">Send</button>
-  </div>
+  <!-- Main Body -->
+  <main>
+    <section>
+      <h2>Welcome to AIthos</h2>
+      <p>Ask me something below and I’ll respond using ethical strategies.</p>
+      
+      <!-- Chatbox -->
+      <div id="chatbox">
+        <input type="text" id="userInput" placeholder="Type your question here...">
+        <button onclick="handleInput()">Send</button>
+      </div>
+      <div id="response"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 AIthos. All rights reserved.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
