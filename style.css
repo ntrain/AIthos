@@ -17,7 +17,7 @@ body {
   outline-offset: -24px;
 
   /* Background image with overlay */
-  background-image: url('images/background.png');
+  background-image: url('images/background.png.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
