@@ -15,6 +15,8 @@ header {
   background: rgba(0, 0, 0, 0.6);
   padding: 20px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  animation: fadeInGlow 1.2s ease forwards;
+  animation-delay: 0.2s;
 }
 
 .header-container {
@@ -49,15 +51,16 @@ header {
 
 /* Main layout */
 main {
-  position: relative;
-  min-height: calc(100vh - 120px);
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   padding: 20px 40px;
+  min-height: calc(100vh - 120px);
 }
 
-/* Welcome panel */
-.left-panel {
+/* Panels */
+.left-panel,
+.response-panel {
   width: 28%;
   background: rgba(0, 0, 0, 0.6);
   padding: 15px;
@@ -66,11 +69,21 @@ main {
     0 0 5px #00ccff,
     0 0 10px #00ccff,
     0 0 20px #00ccff;
+  min-height: 180px; /* shorter than width */
   animation: fadeInGlow 1.2s ease forwards;
-  animation-delay: 0.4s;
 }
 
-/* Question panel */
+.left-panel { animation-delay: 0.4s; }
+.response-panel { animation-delay: 0.8s; }
+
+/* Response panel fixed above footer */
+.response-panel {
+  position: fixed;
+  bottom: 60px;   /* sits above footer */
+  right: 40px;
+}
+
+/* Question panel inside left */
 #chatbox {
   background: rgba(0, 0, 0, 0.6);
   padding: 10px;
@@ -105,111 +118,78 @@ main {
   box-shadow: 
     0 0 5px #00ccff,
     0 0 10px #00ccff;
-  transition: all 0.3s ease-in/* Global body styling */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-image: url('images/background.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
-  color: white;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Header styling */
-header {
+#chatbox button:hover {
+  background-color: #00e0ff;
+  box-shadow: 
+    0 0 8px #00ccff,
+    0 0 15px #00ccff;
+}
+
+/* Conversation box */
+#conversation {
   background: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  border-radius: 8px;
+  min-height: 100px;
 }
 
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Footer */
+footer {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9em;
+  box-shadow: 
+    0 0 5px #00ccff,
+    0 0 10px #00ccff,
+    0 0 20px #00ccff;
+  animation: fadeInGlow 1.2s ease forwards;
+  animation-delay: 1s;
 }
 
-.logo h1 {
+footer p {
   margin: 0;
-  font-size: 3em;
-  font-weight: bold;
-  letter-spacing: 2px;
   color: #ffffff;
   text-shadow: 
     0 0 5px #00ccff,
     0 0 10px #00ccff,
-    0 0 20px #00ccff,
-    0 0 40px #00ccff;
+    0 0 20px #00ccff;
 }
 
-.tagline {
-  font-size: 1.2em;
-  color: #ffffff;
+footer .author {
+  color: #ffd700;
   font-style: italic;
+  margin-left: 10px;
   text-shadow: 
     0 0 5px #00ccff,
-    0 0 10px #00ccff,
-    0 0 20px #00ccff,
-    0 0 40px #00ccff;
-}
-
-/* Main layout */
-main {
-  position: relative;
-  min-height: calc(100vh - 120px);
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-}
-
-/* Welcome panel */
-.left-panel {
-  width: 28%;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 
-    0 0 5px #00ccff,
-    0 0 10px #00ccff,
-    0 0 20px #00ccff;
-  animation: fadeInGlow 1.2s ease forwards;
-  animation-delay: 0.4s;
-}
-
-/* Question panel */
-#chatbox {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 10px;
-  border-radius: 8px;
-  display: flex;
-  gap: 8px;
-  margin-top: 15px;
-  box-shadow: 
-    0 0 5px #00ccff,
-    0 0 10px #00ccff,
-    0 0 20px #00ccff;
-  animation: fadeInGlow 1.2s ease forwards;
-  animation-delay: 0.6s;
-}
-
-#chatbox input {
-  flex: 1;
-  padding: 8px;
-  border: none;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-}
-
-#chatbox button {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  background-color: #00ccff;
-  color: #fff;
-  cursor: pointer;
-  box-shadow: 
-    0 0 5px #00ccff,
     0 0 10px #00ccff;
-  transition: all 0.3s ease-in
+}
+
+/* Hover glow effect for panels */
+.left-panel:hover,
+.response-panel:hover,
+#chatbox:hover {
+  box-shadow: 
+    0 0 8px #00ccff,
+    0 0 15px #00ccff,
+    0 0 25px #00ccff;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeInGlow {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
