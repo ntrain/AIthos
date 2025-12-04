@@ -1,3 +1,5 @@
+// Ethical response logic for AIthos
+
 function generateResponse(userInput) {
   const input = userInput.toLowerCase();
 
