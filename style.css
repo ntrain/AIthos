@@ -1,32 +1,215 @@
-/* Footer always visible, centered, with glow */
-footer {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 15px;
-  text-align: center;   /* center text */
-  position: fixed;      /* lock to bottom */
-  bottom: 0;
-  width: 100%;
-  font-size: 0.9em;
-  box-shadow: 
-    0 0 5px #00ccff,
-    0 0 10px #00ccff,
-    0 0 20px #00ccff; /* glowing aura */
+/* Global body styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('images/background.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
 }
 
-footer p {
+/* Header styling */
+header {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
   margin: 0;
+  font-size: 3em;
+  font-weight: bold;
+  letter-spacing: 2px;
   color: #ffffff;
   text-shadow: 
     0 0 5px #00ccff,
     0 0 10px #00ccff,
-    0 0 20px #00ccff; /* glowing text */
+    0 0 20px #00ccff,
+    0 0 40px #00ccff;
 }
 
-footer .author {
-  color: #ffd700; /* gold accent for author */
+.tagline {
+  font-size: 1.2em;
+  color: #ffffff;
   font-style: italic;
-  margin-left: 10px;
   text-shadow: 
     0 0 5px #00ccff,
-    0 0 10px #00ccff; /* subtle glow for author too */
+    0 0 10px #00ccff,
+    0 0 20px #00ccff,
+    0 0 40px #00ccff;
 }
+
+/* Main layout */
+main {
+  position: relative;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+/* Welcome panel */
+.left-panel {
+  width: 28%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 
+    0 0 5px #00ccff,
+    0 0 10px #00ccff,
+    0 0 20px #00ccff;
+  animation: fadeInGlow 1.2s ease forwards;
+  animation-delay: 0.4s;
+}
+
+/* Question panel */
+#chatbox {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+  box-shadow: 
+    0 0 5px #00ccff,
+    0 0 10px #00ccff,
+    0 0 20px #00ccff;
+  animation: fadeInGlow 1.2s ease forwards;
+  animation-delay: 0.6s;
+}
+
+#chatbox input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+#chatbox button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #00ccff;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 
+    0 0 5px #00ccff,
+    0 0 10px #00ccff;
+  transition: all 0.3s ease-in/* Global body styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('images/background.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+}
+
+/* Header styling */
+header {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 3em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-shadow: 
+    0 0 5px #00ccff,
+    0 0 10px #00ccff,
+    0 0 20px #00ccff,
+    0 0 40px #00ccff;
+}
+
+.tagline {
+  font-size: 1.2em;
+  color: #ffffff;
+  font-style: italic;
+  text-shadow: 
+    0 0 5px #00ccff,
+    0 0 10px #00ccff,
+    0 0 20px #00ccff,
+    0 0 40px #00ccff;
+}
+
+/* Main layout */
+main {
+  position: relative;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+/* Welcome panel */
+.left-panel {
+  width: 28%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 
+    0 0 5px #00ccff,
+    0 0 10px #00ccff,
+    0 0 20px #00ccff;
+  animation: fadeInGlow 1.2s ease forwards;
+  animation-delay: 0.4s;
+}
+
+/* Question panel */
+#chatbox {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+  box-shadow: 
+    0 0 5px #00ccff,
+    0 0 10px #00ccff,
+    0 0 20px #00ccff;
+  animation: fadeInGlow 1.2s ease forwards;
+  animation-delay: 0.6s;
+}
+
+#chatbox input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+#chatbox button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #00ccff;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 
+    0 0 5px #00ccff,
+    0 0 10px #00ccff;
+  transition: all 0.3s ease-in
