@@ -1,8 +1,9 @@
-// Ethical response logic for AIthos
+// Smarter response logic for AIthos
 
-function generateResponse(userInput) {
+async function generateResponse(userInput) {
   const input = userInput.toLowerCase();
 
+  // Ethical guardrails
   if (input.includes("hack") || input.includes("suicide") || input.includes("violence")) {
     return "I cannot provide guidance on unsafe or harmful activities. If you're trying to recover your own account, please use official password reset options.";
   }
@@ -11,11 +12,29 @@ function generateResponse(userInput) {
     return "I cannot share or expose private information. For account recovery, please use the official support channels.";
   }
 
-  if (input.includes("politics")) {
-    return "I can share factual information about political systems, but I won’t endorse candidates.";
+  // Topic detection
+  if (input.includes("weather")) {
+    return "I can’t give live forecasts, but generally Colorado winters are cold and snowy.";
   }
 
-  return "Thanks for your question! AIthos is here to have a respectful and ethical conversation with you.";
+  if (input.includes("sports")) {
+    return "Sports bring people together! Do you follow football, basketball, or another sport most closely?";
+  }
+
+  if (input.includes("music")) {
+    return "Music is powerful. Many people enjoy pop, rock, or classical — what’s your favorite genre?";
+  }
+
+  if (input.includes("history")) {
+    return "History is full of lessons. For example, the Renaissance was a period of great cultural change.";
+  }
+
+  if (input.includes("science")) {
+    return "Science helps us understand the world — from atoms to galaxies, it’s all connected.";
+  }
+
+  // Default fallback
+  return "That's an interesting question! AIthos is here to explore it with you.";
 }
 
 function handleInput() {
@@ -32,15 +51,18 @@ function handleInput() {
   conversationBox.appendChild(userMsg);
 
   // Add AI response
-  const response = generateResponse(userInput);
-  const aiMsg = document.createElement("div");
-  aiMsg.className = "ai-message";
-  aiMsg.innerText = "AIthos: " + response;
-  conversationBox.appendChild(aiMsg);
+  generateResponse(userInput).then(response => {
+    const aiMsg = document.createElement("div");
+    aiMsg.className = "ai-message";
+    aiMsg.innerText = "AIthos: " + response;
+    conversationBox.appendChild(aiMsg);
 
-  // Clear input and scroll
+    // Scroll to bottom
+    conversationBox.scrollTop = conversationBox.scrollHeight;
+  });
+
+  // Clear input
   inputField.value = "";
-  conversationBox.scrollTop = conversationBox.scrollHeight;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
