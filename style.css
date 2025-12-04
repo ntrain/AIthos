@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-image: url('images/background.png'); /* ensure this file exists */
+  background-image: url('images/background.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -23,23 +23,45 @@ header {
   align-items: center;
 }
 
+/* Glow animation */
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 40px currentColor;
+  }
+  50% {
+    text-shadow: 
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 40px currentColor,
+      0 0 60px currentColor;
+  }
+  100% {
+    text-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 40px currentColor;
+  }
+}
+
 .logo h1 {
   margin: 0;
   font-size: 4em;
   font-weight: bold;
   letter-spacing: 2px;
   color: #00ffff; /* neon cyan */
-  text-shadow: 
-    0 0 5px #00ffff,
-    0 0 10px #00ffff,
-    0 0 20px #00ffff,
-    0 0 40px #00ffff; /* glowing effect */
+  animation: pulseGlow 3s infinite;
 }
 
 .tagline {
   font-size: 1.2em;
-  color: #f0f0f0;
+  color: #ff00ff; /* neon magenta */
   font-style: italic;
+  animation: pulseGlow 3s infinite;
 }
 
 /* Main body layout */
@@ -47,6 +69,7 @@ main {
   display: flex;
   justify-content: space-between;
   padding: 40px;
+  position: relative;
 }
 
 .left-panel {
@@ -54,43 +77,21 @@ main {
   text-align: left;
 }
 
-.right-panel {
-  width: 50%;
+/* Response section anchored bottom right */
+.response-panel {
+  position: absolute;
+  bottom: 80px; /* sits above footer */
+  right: 40px;
+  width: 40%;
   text-align: right;
 }
 
-/* Chatbox styling */
-#chatbox {
-  margin-top: 20px;
-}
-
-#userInput {
-  padding: 10px;
-  width: 70%;
-  border-radius: 5px;
-  border: none;
-}
-
-button {
-  padding: 10px 20px;
-  margin-left: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #333;
-  color: white;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #555;
-}
-
-/* Conversation history */
 #conversation {
-  margin-top: 20px;
-  max-width: 90%;
-  margin-left: auto;
-  margin-right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  border-radius: 8px;
+  max-height: 250px;
+  overflow-y: auto;
 }
 
 .user-message, .ai-message {
