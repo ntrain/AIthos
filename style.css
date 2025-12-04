@@ -157,6 +157,12 @@ footer {
   bottom: 0;
   width: 100%;
   font-size: 0.9em;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  text-shadow: 
+    0 0 5px #00ccff,
+    0 0 10px #00ccff,
+    0 0 20px #00ccff;
   box-shadow: 
     0 0 5px #00ccff,
     0 0 10px #00ccff,
@@ -167,20 +173,6 @@ footer {
 
 footer p {
   margin: 0;
-  color: #ffffff;
-  text-shadow: 
-    0 0 5px #00ccff,
-    0 0 10px #00ccff,
-    0 0 20px #00ccff;
-}
-
-footer .author {
-  color: #ffd700;
-  font-style: italic;
-  margin-left: 10px;
-  text-shadow: 
-    0 0 5px #00ccff,
-    0 0 10px #00ccff;
 }
 
 /* Hover glow effect */
