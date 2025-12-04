@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-image: url('images/background.png'); /* make sure this file exists */
+  background-image: url('images/background.png'); /* ensure this file exists */
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -19,9 +19,10 @@ header {
 
 header h1 {
   margin: 0;
-   font-size: 4em;   /* larger size */
+  font-size: 4em;        /* larger size */
   font-weight: bold;
-  letter-spacing: 2px; /* optional spacing for style */
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* subtle shadow */
 }
 
 /* Main body styling */
@@ -61,6 +62,7 @@ button:hover {
   background: rgba(0, 0, 0, 0.6);
   padding: 15px;
   border-radius: 5px;
+  min-height: 40px;
 }
 
 /* Footer styling */
