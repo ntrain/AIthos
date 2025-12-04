@@ -1,61 +1,31 @@
-// AIthos front-end logic: sends user input to backend reasoning engine
+const conversation = document.getElementById("conversation");
+const userInput = document.getElementById("user-input");
+const sendBtn = document.getElementById("send-btn");
 
-async function generateResponse(userInput) {
-  try {
-    const response = await fetch("/api/respond", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query: userInput })
-    });
-
-    const data = await response.json();
-    return data.answer || "Sorry, I couldn't generate a response.";
-  } catch (error) {
-    console.error("Error contacting backend:", error);
-    return "There was a problem connecting to the reasoning engine.";
-  }
+function addMessage(text, type) {
+  const el = document.createElement("div");
+  el.classList.add(type === "user" ? "user-message" : "ai-message");
+  el.textContent = text;
+  conversation.appendChild(el);
+  conversation.scrollTop = conversation.scrollHeight;
 }
 
-function handleInput() {
-  const inputField = document.getElementById("userInput");
-  const conversationBox = document.getElementById("conversation");
-  const userInput = inputField.value;
+function handleSend() {
+  const text = userInput.value.trim();
+  if (!text) return;
 
-  if (!userInput.trim()) return;
+  // User line
+  addMessage(text, "user");
 
-  // Add user message
-  const userMsg = document.createElement("div");
-  userMsg.className = "user-message";
-  userMsg.innerText = "You: " + userInput;
-  conversationBox.appendChild(userMsg);
+  // Simulated AIthos response (demo mode)
+  setTimeout(() => {
+    addMessage(`AIthos demo received: "${text}"`, "ai");
+  }, 450);
 
-  // Generate and add AI response
-  generateResponse(userInput).then(response => {
-    const aiMsg = document.createElement("div");
-    aiMsg.className = "ai-message";
-    aiMsg.innerText = "AIthos: " + response;
-    conversationBox.appendChild(aiMsg);
-
-    // Scroll to bottom
-    conversationBox.scrollTop = conversationBox.scrollHeight;
-  });
-
-  // Clear input
-  inputField.value = "";
+  userInput.value = "";
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const inputField = document.getElementById("userInput");
-  const sendBtn = document.getElementById("sendBtn");
-
-  // Submit on Enter
-  inputField.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      handleInput();
-    }
-  });
-
-  // Submit on button click
-  sendBtn.addEventListener("click", handleInput);
+sendBtn.addEventListener("click", handleSend);
+userInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") handleSend();
 });
