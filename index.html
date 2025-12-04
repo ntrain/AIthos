@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AIthos Demo</title>
-  <link rel="stylesheet" href="style.css">
+  <title>AIthos Interface</title>
+  <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
   <header>
@@ -12,32 +12,33 @@
       <div class="logo">
         <h1>AIthos</h1>
       </div>
-      <div class="tagline">Illuminating ideas with clarity</div>
+      <div class="tagline">Your AI Companion</div>
     </div>
   </header>
 
   <main>
+    <!-- Left welcome panel -->
     <section class="left-panel">
-      <h2>Conversation</h2>
-      <div id="conversation"></div>
-
+      <h2>Welcome to AIthos</h2>
+      <p>Your AI companion for knowledge, creativity, and productivity.</p>
       <div id="chatbox">
-        <input type="text" id="user-input" placeholder="Type your message...">
-        <button id="send-btn">Send</button>
+        <input id="userInput" type="text" placeholder="Ask me anything...">
+        <button id="sendBtn">Send</button>
       </div>
     </section>
 
-    <!-- Right side fixed panel for responses or tips -->
-    <aside class="response-panel">
-      <h3>AIthos (Demo Mode)</h3>
-      <p>Running locally without Azure. Messages echo back with glow and fade-in.</p>
-    </aside>
+    <!-- Right response panel -->
+    <section class="response-panel">
+      <div id="conversation">
+        <!-- User and AIthos responses will appear here -->
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>© 2025 AIthos • Crafted with focus and glow</p>
+    <p>Powered by AIthos — Nicole Train</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>
