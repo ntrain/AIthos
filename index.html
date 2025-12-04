@@ -9,21 +9,25 @@
 <body>
   <!-- Header -->
   <header>
-    <h1><em>A</em><em>I</em>thos</h1>
+    <div class="header-container">
+      <div class="logo"><h1><em>A</em><em>I</em>thos</h1></div>
+      <div class="tagline">Respectful & Ethical Conversations</div>
+    </div>
   </header>
 
   <!-- Main Body -->
   <main>
-    <section>
+    <section class="left-panel">
       <h2>Welcome to AIthos</h2>
-      <p>Ask me something below and I’ll respond using ethical strategies.</p>
-
-      <!-- Chatbox -->
+      <p>Type your questions here:</p>
       <div id="chatbox">
-        <input type="text" id="userInput" placeholder="Type your question here...">
+        <input type="text" id="userInput" placeholder="Type your question...">
         <button onclick="handleInput()">Send</button>
       </div>
-      <div id="response"></div>
+    </section>
+
+    <section class="right-panel">
+      <div id="conversation"></div>
     </section>
   </main>
 
