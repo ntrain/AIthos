@@ -37,28 +37,35 @@ function contextualResponse(input) {
 
   switch (topic) {
     case 'question':
-      return `You asked: "${clean}". I can help outline the core ideas, steps, or background so you can move forward.`;
+      return "I can help outline the core ideas, steps, or background so you can move forward.";
 
     case 'weather':
-      return `I don't have live forecasts, but Colorado winters are typically cold and snowy, with quick swings in temperature.`;
+      return "I don't have live forecasts, but Colorado winters are typically cold and snowy, with quick swings in temperature.";
 
     case 'music':
-      return `Music is powerful. Many people enjoy pop, rock, or classical — what’s your favorite genre?`;
+      return "Music is powerful. Many people enjoy pop, rock, or classical — what’s your favorite genre?";
 
     case 'sports':
-      return `Sports bring people together! Do you follow football, basketball, or another sport most closely?`;
+      return "Sports bring people together! Do you follow football, basketball, or another sport most closely?";
 
     case 'history':
-      return `History is full of lessons. For example, the Renaissance was a period of great cultural change.`;
+      return "History is full of lessons. For example, the Renaissance was a period of great cultural change.";
 
     case 'science':
-      return `Science helps us understand the world — from atoms to galaxies, it’s all connected.`;
+      return "Science helps us understand the world — from atoms to galaxies, it’s all connected.";
 
     case 'programming':
-      return `Programming is about problem-solving. Start with a minimal example and build step by step.`;
+      return "Programming is about problem-solving. Start with a minimal example and build step by step.";
 
     default:
-      return `That's an interesting thought: "${clean}". Could you tell me more so I can respond better?`;
+      // Randomized generic replies to avoid repetition
+      const genericReplies = [
+        "That's an interesting thought. Could you tell me more so I can respond better?",
+        "I’d like to hear more about that idea.",
+        "That sparks curiosity — what direction would you like to explore?",
+        "I’m listening. Share a bit more detail."
+      ];
+      return genericReplies[Math.floor(Math.random() * genericReplies.length)];
   }
 }
 
