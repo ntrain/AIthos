@@ -23,45 +23,29 @@ header {
   align-items: center;
 }
 
-/* Glow animation */
-@keyframes pulseGlow {
-  0% {
-    text-shadow: 
-      0 0 5px currentColor,
-      0 0 10px currentColor,
-      0 0 20px currentColor,
-      0 0 40px currentColor;
-  }
-  50% {
-    text-shadow: 
-      0 0 10px currentColor,
-      0 0 20px currentColor,
-      0 0 40px currentColor,
-      0 0 60px currentColor;
-  }
-  100% {
-    text-shadow: 
-      0 0 5px currentColor,
-      0 0 10px currentColor,
-      0 0 20px currentColor,
-      0 0 40px currentColor;
-  }
-}
-
+/* Blue futuristic glow */
 .logo h1 {
   margin: 0;
   font-size: 4em;
   font-weight: bold;
   letter-spacing: 2px;
-  color: #00ffff; /* neon cyan */
-  animation: pulseGlow 3s infinite;
+  color: #00ccff; /* neon blue */
+  text-shadow: 
+    0 0 5px #00ccff,
+    0 0 10px #00ccff,
+    0 0 20px #00ccff,
+    0 0 40px #00ccff;
 }
 
 .tagline {
   font-size: 1.2em;
-  color: #ff00ff; /* neon magenta */
+  color: #00ccff; /* neon blue */
   font-style: italic;
-  animation: pulseGlow 3s infinite;
+  text-shadow: 
+    0 0 5px #00ccff,
+    0 0 10px #00ccff,
+    0 0 20px #00ccff,
+    0 0 40px #00ccff;
 }
 
 /* Main body layout */
