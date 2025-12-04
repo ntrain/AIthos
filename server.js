@@ -1,16 +1,14 @@
 // server.js
-import express from "express";
-import fetch from "node-fetch";
+const express = require("express");
+const fetch = require("node-fetch");
 
 const app = express();
 app.use(express.json());
 
-// Endpoint AIthos front-end will call
 app.post("/api/respond", async (req, res) => {
   const { query } = req.body;
 
   try {
-    // Call Azure OpenAI reasoning engine
     const response = await fetch(
       "https://YOUR_AZURE_OPENAI_ENDPOINT/openai/deployments/YOUR_MODEL/chat/completions?api-version=2023-05-15",
       {
