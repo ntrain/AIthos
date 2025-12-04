@@ -7,14 +7,37 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>AIthos Demo</h1>
-    <div id="chat-box"></div>
-    <div class="input-area">
-      <input type="text" id="user-input" placeholder="Type your message...">
-      <button id="send-btn">Send</button>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <h1>AIthos</h1>
+      </div>
+      <div class="tagline">Illuminating ideas with clarity</div>
     </div>
-  </div>
+  </header>
+
+  <main>
+    <section class="left-panel">
+      <h2>Conversation</h2>
+      <div id="conversation"></div>
+
+      <div id="chatbox">
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <button id="send-btn">Send</button>
+      </div>
+    </section>
+
+    <!-- Right side fixed panel for responses or tips -->
+    <aside class="response-panel">
+      <h3>AIthos (Demo Mode)</h3>
+      <p>Running locally without Azure. Messages echo back with glow and fade-in.</p>
+    </aside>
+  </main>
+
+  <footer>
+    <p>© 2025 AIthos • Crafted with focus and glow</p>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
