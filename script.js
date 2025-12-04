@@ -30,4 +30,10 @@ function handleInput() {
   conversationBox.appendChild(userMsg);
 
   const response = generateResponse(userInput);
-  const aiMsg = document.createElement
+  const aiMsg = document.createElement("div");
+  aiMsg.className = "ai-message";
+  aiMsg.innerText = "AIthos: " + response;
+  conversationBox.appendChild(aiMsg);
+
+  document.getElementById("userInput").value = "";
+  conversationBox.scrollTop = conversationBox.scrollHeight;
