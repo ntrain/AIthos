@@ -19,21 +19,42 @@ function generateResponse(userInput) {
 }
 
 function handleInput() {
-  const userInput = document.getElementById("userInput").value;
+  const inputField = document.getElementById("userInput");
+  const userInput = inputField.value;
   if (!userInput.trim()) return;
 
   const conversationBox = document.getElementById("conversation");
 
+  // Add user message
   const userMsg = document.createElement("div");
   userMsg.className = "user-message";
   userMsg.innerText = "You: " + userInput;
   conversationBox.appendChild(userMsg);
 
+  // Add AI response
   const response = generateResponse(userInput);
   const aiMsg = document.createElement("div");
   aiMsg.className = "ai-message";
   aiMsg.innerText = "AIthos: " + response;
   conversationBox.appendChild(aiMsg);
 
-  document.getElementById("userInput").value = "";
+  // Clear input and scroll
+  inputField.value = "";
   conversationBox.scrollTop = conversationBox.scrollHeight;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const inputField = document.getElementById("userInput");
+  const sendBtn = document.getElementById("sendBtn");
+
+  // Submit on Enter
+  inputField.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleInput();
+    }
+  });
+
+  // Submit on button click
+  sendBtn.addEventListener("click", handleInput);
+});
