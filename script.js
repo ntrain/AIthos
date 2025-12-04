@@ -30,20 +30,4 @@ function handleInput() {
   conversationBox.appendChild(userMsg);
 
   const response = generateResponse(userInput);
-  const aiMsg = document.createElement("div");
-  aiMsg.className = "ai-message";
-  aiMsg.innerText = "AIthos: " + response;
-  conversationBox.appendChild(aiMsg);
-
-  document.getElementById("userInput").value = "";
-  conversationBox.scrollTop = conversationBox.scrollHeight;
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("userInput").addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      handleInput();
-    }
-  });
-});
+  const aiMsg = document.createElement
