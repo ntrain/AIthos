@@ -14,21 +14,44 @@ body {
 header {
   background: rgba(0, 0, 0, 0.6);
   padding: 20px;
-  text-align: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-header h1 {
+.header-container {
+  display: flex;
+  justify-content: space-between; /* logo left, tagline right */
+  align-items: center;
+}
+
+.logo h1 {
   margin: 0;
-  font-size: 4em;        /* larger size */
+  font-size: 4em;
   font-weight: bold;
   letter-spacing: 2px;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* subtle shadow */
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
 }
 
-/* Main body styling */
+.tagline {
+  font-size: 1.2em;
+  color: #f0f0f0;
+  font-style: italic;
+}
+
+/* Main body layout */
 main {
+  display: flex;
+  justify-content: space-between;
   padding: 40px;
-  text-align: center;
+}
+
+.left-panel {
+  width: 40%;
+  text-align: left;
+}
+
+.right-panel {
+  width: 50%;
+  text-align: right;
 }
 
 /* Chatbox styling */
@@ -38,7 +61,7 @@ main {
 
 #userInput {
   padding: 10px;
-  width: 60%;
+  width: 70%;
   border-radius: 5px;
   border: none;
 }
@@ -57,12 +80,28 @@ button:hover {
   background-color: #555;
 }
 
-#response {
+/* Conversation history */
+#conversation {
   margin-top: 20px;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.user-message, .ai-message {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.user-message {
+  background: rgba(255, 255, 255, 0.2);
+  text-align: right;
+}
+
+.ai-message {
   background: rgba(0, 0, 0, 0.6);
-  padding: 15px;
-  border-radius: 5px;
-  min-height: 40px;
+  text-align: left;
 }
 
 /* Footer styling */
@@ -74,3 +113,4 @@ footer {
   bottom: 0;
   width: 100%;
 }
+
