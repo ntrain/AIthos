@@ -69,7 +69,7 @@ main {
     0 0 5px #00ccff,
     0 0 10px #00ccff,
     0 0 20px #00ccff;
-  min-height: 120px; /* compact size */
+  min-height: 120px;
   animation: fadeInGlow 1.2s ease forwards;
 }
 
@@ -132,7 +132,7 @@ main {
   background: rgba(0, 0, 0, 0.6);
   padding: 8px;
   border-radius: 8px;
-  min-height: 80px; /* compact response box */
+  min-height: 80px;
   max-height: 200px;
   overflow-y: auto;
 }
