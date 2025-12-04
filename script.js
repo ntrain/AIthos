@@ -1,4 +1,4 @@
-// AIthos: smarter, contextual responses with guardrails
+// AIthos: contextual responses with ethical guardrails
 
 function sanitize(text) {
   return text.trim().replace(/\s+/g, ' ');
@@ -7,7 +7,6 @@ function sanitize(text) {
 function extractTopic(input) {
   const i = input.toLowerCase();
 
-  // Simple intent patterns
   if (/^(what|who|where|when|why|how)\b/.test(i)) return 'question';
   if (i.includes('weather')) return 'weather';
   if (i.includes('music') || i.includes('song') || i.includes('artist')) return 'music';
@@ -36,46 +35,37 @@ function contextualResponse(input) {
   const clean = sanitize(input);
   const topic = extractTopic(clean);
 
-  const starters = [
-    "Here’s a helpful way to look at it:",
-    "A quick, clear take:",
-    "Let’s get you a direct answer:",
-  ];
-  const starter = starters[Math.floor(Math.random() * starters.length)];
-
   switch (topic) {
     case 'question':
-      return `${starter} You asked: "${clean}". I don't have live data access, but I can help outline the core ideas, steps, or background so you can move forward.`;
+      return `You asked: "${clean}". I can help outline the core ideas, steps, or background so you can move forward.`;
 
     case 'weather':
-      return `${starter} I don't have live forecasts, but Colorado winters are typically cold and snowy, with quick swings in temperature. If you’re planning something, layering is smart.`;
+      return `I don't have live forecasts, but Colorado winters are typically cold and snowy, with quick swings in temperature.`;
 
     case 'music':
-      return `${starter} If you're exploring music, try building a short playlist around one mood. Pick a lead track you love and add 4–6 songs that match its energy.`;
+      return `Music is powerful. Many people enjoy pop, rock, or classical — what’s your favorite genre?`;
 
     case 'sports':
-      return `${starter} For sports questions, focus on one team or player and a single metric (wins, efficiency, recent form). It makes comparisons clear and useful.`;
+      return `Sports bring people together! Do you follow football, basketball, or another sport most closely?`;
 
     case 'history':
-      return `${starter} A solid approach is timeline → causes → effects. Pick a specific event, place it in time, note key drivers, then what changed because of it.`;
+      return `History is full of lessons. For example, the Renaissance was a period of great cultural change.`;
 
     case 'science':
-      return `${starter} Break science topics into concept → example → application. Define it briefly, show a concrete example, then one way it’s used in the real world.`;
+      return `Science helps us understand the world — from atoms to galaxies, it’s all connected.`;
 
     case 'programming':
-      return `${starter} Start with a minimal reproducible example. One file, clear inputs/outputs, and log the exact error or behavior. It makes debugging fast.`;
+      return `Programming is about problem-solving. Start with a minimal example and build step by step.`;
 
     default:
-      return `${starter} "${clean}"—tell me the one outcome you want here (learn something, decide, plan, or fix). I’ll tailor the next step to that.`;
+      return `That's an interesting thought: "${clean}". Could you tell me more so I can respond better?`;
   }
 }
 
 function generateResponse(userInput) {
-  // Guardrails first
   const safeBlock = guardrails(userInput);
   if (safeBlock) return safeBlock;
 
-  // Contextual reply
   return contextualResponse(userInput);
 }
 
