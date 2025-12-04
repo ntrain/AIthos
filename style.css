@@ -1,62 +1,32 @@
-/* Welcome panel styled like response with glow */
-.left-panel {
-  width: 40%;
-  text-align: left;
-  background: rgba(0, 0, 0, 0.6); /* dark background */
-  padding: 20px;
-  border-radius: 8px;
-  display: inline-block;
-  max-height: 60vh;               /* prevent overlap with footer */
-  overflow-y: auto;
-  box-shadow: 
-    0 0 5px #00ccff,
-    0 0 10px #00ccff,
-    0 0 20px #00ccff; /* glowing blue aura */
-}
-
-/* Question panel styled like response with glow */
-#chatbox {
+/* Footer always visible, centered, with glow */
+footer {
   background: rgba(0, 0, 0, 0.6);
   padding: 15px;
-  border-radius: 8px;
-  display: flex;
-  gap: 10px;
+  text-align: center;   /* center text */
+  position: fixed;      /* lock to bottom */
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9em;
   box-shadow: 
     0 0 5px #00ccff,
     0 0 10px #00ccff,
-    0 0 20px #00ccff;
+    0 0 20px #00ccff; /* glowing aura */
 }
 
-#chatbox input {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-}
-
-#chatbox button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 6px;
-  background-color: #00ccff;
-  color: #fff;
-  cursor: pointer;
-  box-shadow: 
-    0 0 5px #00ccff,
-    0 0 10px #00ccff;
-}
-
-/* Response panel glow */
-.response-panel {
-  position: absolute;
-  bottom: 80px;
-  right: 40px;
-  width: 40%;
-  text-align: right;
-  box-shadow: 
+footer p {
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 
     0 0 5px #00ccff,
     0 0 10px #00ccff,
-    0 0 20px #00ccff;
+    0 0 20px #00ccff; /* glowing text */
+}
+
+footer .author {
+  color: #ffd700; /* gold accent for author */
+  font-style: italic;
+  margin-left: 10px;
+  text-shadow: 
+    0 0 5px #00ccff,
+    0 0 10px #00ccff; /* subtle glow for author too */
 }
