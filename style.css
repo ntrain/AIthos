@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-image: url('images/background.png');
+  background-image: url('images/background.png'); /* adjust path if needed */
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -82,7 +82,7 @@ main {
   animation-delay: 0.8s;
 }
 
-/* Question panel inside left */
+/* Chatbox */
 #chatbox {
   background: rgba(0, 0, 0, 0.6);
   padding: 8px;
@@ -133,6 +133,19 @@ main {
   padding: 8px;
   border-radius: 8px;
   min-height: 80px; /* compact response box */
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Message styling */
+.user-message {
+  color: #00e0ff;
+  margin: 5px 0;
+}
+
+.ai-message {
+  color: #ffd700;
+  margin: 5px 0;
 }
 
 /* Footer */
@@ -170,7 +183,7 @@ footer .author {
     0 0 10px #00ccff;
 }
 
-/* Hover glow effect for panels */
+/* Hover glow effect */
 .left-panel:hover,
 .response-panel:hover,
 #chatbox:hover {
