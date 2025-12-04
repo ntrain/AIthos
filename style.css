@@ -19,7 +19,9 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 2.5em;
+   font-size: 4em;   /* larger size */
+  font-weight: bold;
+  letter-spacing: 2px; /* optional spacing for style */
 }
 
 /* Main body styling */
