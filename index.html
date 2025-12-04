@@ -3,42 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AIthos Interface</title>
-  <link rel="stylesheet" href="style.css?v=2">
+  <title>AIthos Demo</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="header-container">
-      <div class="logo">
-        <h1>AIthos</h1>
-      </div>
-      <div class="tagline">Your AI Companion</div>
+  <div class="container">
+    <h1>AIthos Demo</h1>
+    <div id="chat-box"></div>
+    <div class="input-area">
+      <input type="text" id="user-input" placeholder="Type your message...">
+      <button id="send-btn">Send</button>
     </div>
-  </header>
-
-  <main>
-    <!-- Left welcome panel -->
-    <section class="left-panel">
-      <h2>Welcome to AIthos</h2>
-      <p>Your AI companion for knowledge, creativity, and productivity.</p>
-      <div id="chatbox">
-        <input id="userInput" type="text" placeholder="Ask me anything...">
-        <button id="sendBtn">Send</button>
-      </div>
-    </section>
-
-    <!-- Right response panel -->
-    <section class="response-panel">
-      <div id="conversation">
-        <!-- User and AIthos responses will appear here -->
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>Powered by AIthos — Nicole Train</p>
-  </footer>
-
-  <script src="script.js?v=2"></script>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
