@@ -63,10 +63,8 @@ main {
   background: rgba(0, 0, 0, 0.6); /* same dark background as response */
   padding: 20px;
   border-radius: 8px;
-  display: inline-block;          /* shrink to content */
-  max-height: 400px;              /* prevent overlap with footer */
+  max-height: 250px;              /* prevent overlap with footer */
   overflow-y: auto;               /* scroll if content grows */
-  margin-bottom: 100px;           /* leave room above footer */
 }
 
 /* Response section anchored bottom right */
