@@ -50,10 +50,11 @@ header {
 
 /* Main body layout */
 main {
+  position: relative;              /* anchor for absolute children */
+  min-height: calc(100vh - 120px); /* ensures space above footer */
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 40px;
-  position: relative;
 }
 
 .left-panel {
@@ -95,18 +96,4 @@ main {
 }
 
 /* Footer styling */
-footer {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 15px;
-  text-align: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  font-size: 0.9em;
-}
-
-footer .author {
-  color: #ffd700; /* gold accent */
-  font-style: italic;
-  margin-left: 10px;
-}
+footer
