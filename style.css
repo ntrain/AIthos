@@ -60,6 +60,9 @@ main {
 .left-panel {
   width: 40%;
   text-align: left;
+  background: rgba(0, 0, 0, 0.6); /* same dark background as response */
+  padding: 20px;
+  border-radius: 8px;
 }
 
 /* Response section anchored bottom right */
