@@ -1,6 +1,67 @@
-/* Left panel */
-.left-panel {
-  width: 30%;                        /* compact width */
+/* Global body styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('images/background.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+}
+
+/* Header styling */
+header {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  animation: fadeInGlow 1.2s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 3em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-shadow: 
+    0 0 5px #00ccff,
+    0 0 10px #00ccff,
+    0 0 20px #00ccff,
+    0 0 40px #00ccff;
+}
+
+.tagline {
+  font-size: 1.2em;
+  color: #ffffff;
+  font-style: italic;
+  text-shadow: 
+    0 0 5px #00ccff,
+    0 0 10px #00ccff,
+    0 0 20px #00ccff,
+    0 0 40px #00ccff;
+}
+
+/* Main layout */
+main {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px 40px;
+  min-height: calc(100vh - 120px);
+}
+
+/* Panels */
+.left-panel,
+.response-panel {
+  width: 30%;
   background: rgba(0, 0, 0, 0.6);
   padding: 12px;
   border-radius: 8px;
@@ -8,9 +69,17 @@
     0 0 5px #00ccff,
     0 0 10px #00ccff,
     0 0 20px #00ccff;
-  min-height: 120px;                  /* just slightly taller than text area */
+  min-height: 120px; /* compact size */
   animation: fadeInGlow 1.2s ease forwards;
-  animation-delay: 0.4s;
+}
+
+.left-panel { animation-delay: 0.4s; }
+
+.response-panel {
+  position: fixed;
+  bottom: 60px;   /* sits above footer */
+  right: 40px;
+  animation-delay: 0.8s;
 }
 
 /* Question panel inside left */
@@ -51,28 +120,75 @@
   transition: all 0.3s ease-in-out;
 }
 
-/* Response panel */
-.response-panel {
-  position: fixed;
-  bottom: 60px;   /* sits above footer */
-  right: 40px;
-  width: 30%;                        /* compact width */
-  background: rgba(0, 0, 0, 0.6);
-  padding: 12px;
-  border-radius: 8px;
-  text-align: right;
+#chatbox button:hover {
+  background-color: #00e0ff;
   box-shadow: 
-    0 0 5px #00ccff,
-    0 0 10px #00ccff,
-    0 0 20px #00ccff;
-  min-height: 120px;                  /* just slightly taller than response text area */
-  animation: fadeInGlow 1.2s ease forwards;
-  animation-delay: 0.8s;
+    0 0 8px #00ccff,
+    0 0 15px #00ccff;
 }
 
+/* Conversation box */
 #conversation {
   background: rgba(0, 0, 0, 0.6);
   padding: 8px;
   border-radius: 8px;
-  min-height: 80px;                   /* compact response box */
+  min-height: 80px; /* compact response box */
+}
+
+/* Footer */
+footer {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9em;
+  box-shadow: 
+    0 0 5px #00ccff,
+    0 0 10px #00ccff,
+    0 0 20px #00ccff;
+  animation: fadeInGlow 1.2s ease forwards;
+  animation-delay: 1s;
+}
+
+footer p {
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 
+    0 0 5px #00ccff,
+    0 0 10px #00ccff,
+    0 0 20px #00ccff;
+}
+
+footer .author {
+  color: #ffd700;
+  font-style: italic;
+  margin-left: 10px;
+  text-shadow: 
+    0 0 5px #00ccff,
+    0 0 10px #00ccff;
+}
+
+/* Hover glow effect for panels */
+.left-panel:hover,
+.response-panel:hover,
+#chatbox:hover {
+  box-shadow: 
+    0 0 8px #00ccff,
+    0 0 15px #00ccff,
+    0 0 25px #00ccff;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeInGlow {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
