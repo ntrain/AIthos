@@ -33,4 +33,29 @@ function handleInput() {
   generateResponse(userInput).then(response => {
     const aiMsg = document.createElement("div");
     aiMsg.className = "ai-message";
-    aiMsg.innerText = "AIthos
+    aiMsg.innerText = "AIthos: " + response;
+    conversationBox.appendChild(aiMsg);
+
+    // Scroll to bottom
+    conversationBox.scrollTop = conversationBox.scrollHeight;
+  });
+
+  // Clear input
+  inputField.value = "";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const inputField = document.getElementById("userInput");
+  const sendBtn = document.getElementById("sendBtn");
+
+  // Submit on Enter
+  inputField.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleInput();
+    }
+  });
+
+  // Submit on button click
+  sendBtn.addEventListener("click", handleInput);
+});
