@@ -25,6 +25,23 @@ function generateResponse(userInput) {
 // Handle user input
 function handleInput() {
   const userInput = document.getElementById("userInput").value;
+  if (!userInput.trim()) return; // ignore empty input
+
   const response = generateResponse(userInput);
+
+  // Display response
   document.getElementById("response").innerText = response;
+
+  // Clear input after sending
+  document.getElementById("userInput").value = "";
 }
+
+// Allow pressing Enter to submit
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("userInput").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // prevent page reload
+      handleInput();
+    }
+  });
+});
