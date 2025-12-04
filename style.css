@@ -23,13 +23,13 @@ header {
   align-items: center;
 }
 
-/* Blue futuristic glow */
+/* White text with blue glow */
 .logo h1 {
   margin: 0;
   font-size: 4em;
   font-weight: bold;
   letter-spacing: 2px;
-  color: #00ccff; /* neon blue */
+  color: #ffffff; /* white font */
   text-shadow: 
     0 0 5px #00ccff,
     0 0 10px #00ccff,
@@ -39,7 +39,7 @@ header {
 
 .tagline {
   font-size: 1.2em;
-  color: #00ccff; /* neon blue */
+  color: #ffffff; /* white font */
   font-style: italic;
   text-shadow: 
     0 0 5px #00ccff,
